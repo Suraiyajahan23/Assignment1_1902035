@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Capital Lookup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #F064FA, #02AAB0);
+    }
+
+    .container {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #1A1A1A;
+      margin-bottom: 20px;
+    }
+
+    select, button {
+      font-size: 16px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      margin: 5px;
+      background-color: #ffdbfb;
+      color: #1A1A1A;
+      cursor: pointer;
+    }
+
+    select:hover, button:hover {
+      background-color: #ffbefc;
+    }
+
+    #capitalDisplay {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Country Capital Lookup</h1>
+    <select id="countrySelect">
+      <option value="" disabled selected>Select a country</option>
+      <option value="USA">United States</option>
+      <option value="UK">United Kingdom</option>
+      <option value="Germany">Germany</option>
+      <option value="France">France</option>
+      <option value="Japan">Japan</option>
+      <option value="Bangladesh">Bangladesh</option>
+      <option value="India">India</option>
+      
+    </select>
+    <button onclick="showCapital()">Find Capital</button>
+
+    <div id="capitalDisplay"></div>
+  </div>
+
+  <script>
+    function showCapital() {
+      const countrySelect = document.getElementById("countrySelect");
+      const capitalDisplay = document.getElementById("capitalDisplay");
+
+      // Get the selected country and its index
+      const selectedCountryIndex = countrySelect.selectedIndex;
+      const selectedCountry = countrySelect.options[selectedCountryIndex].text;
+
+      let capital;
+      switch (selectedCountry) {
+        case "United States":
+          capital = "Washington, D.C.";
+          break;
+        case "United Kingdom":
+          capital = "London";
+          break;
+        case "Germany":
+          capital = "Berlin";
+          break;
+        case "France":
+          capital = "Paris";
+          break;
+        case "Japan":
+          capital = "Tokyo";
+          break;
+          case "Bangladesh":
+          capital = "Dhaka";
+          break;
+          case "India":
+          capital = "New Delhi";
+          break;
+        default:
+          capital = "N/A";
+          break;
+      }
+
+      capitalDisplay.textContent = `Capital: ${capital}`;
+    }
+  </script>
+</body>
+</html>
